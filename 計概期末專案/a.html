@@ -1,0 +1,157 @@
+<<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期末專案：Buoy 聊天機器人</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: lightblue;
+            color:antiquewhite;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background:antiquewhite;
+            color: rgba(120, 78, 6, 0.651);
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: rgba(120, 78, 6, 0.651);;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background: lightblue;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-height: 400px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        video {
+            width: 100%;
+            margin: 1rem 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: lightblue;
+            color: white;
+        }
+        section {
+            display: none;
+        }
+        section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>人工智慧聊天機器人在日常醫療中的應用</h1>
+    </header>
+
+    <nav>
+        <a href="#" data-target="introduction">簡介</a>
+        <a href="#" data-target="technology">挑戰與解決方案</a>
+        <a href="#" data-target="nlp">NLP 的運作方式</a>
+        <a href="#" data-target="future">未來發展</a>
+        <a href="#" data-target="video">發表影片</a>
+    </nav>
+
+    <div class="container">
+        <section id="introduction" class="active">
+            <h2>簡介</h2>
+            <p>新冠疫情加速了醫療聊天機器人的使用，其中一個顯著的例子是 Buoy。Buoy 利用人工智慧幫助用戶評估症狀、提供健康資訊並建議下一步行動，有效地進行患者分診，無需面對面的就診。本報告探討了 Buoy 如何運用自然語言處理（NLP）技術來增強醫療服務。透過 NLP，Buoy 能夠理解用戶查詢、識別關鍵意圖和實體，並提供個性化的健康指導。該聊天機器人透過學習互動數據不斷改進，確保在症狀檢查和醫療建議上的準確性。</p>
+            <p>Buoy 由哈佛創新實驗室的醫生和數據科學家團隊開發，旨在引導人們獲得所需的醫療服務，實現大規模的分診，並根據用戶自行報告的症狀將他們連結到適當的醫療資源。透過自然語言處理（NLP），Buoy 分析症狀描述，實時準確地引導用戶尋求正確的醫療護理。</p>
+        </section>
+
+        <section id="technology">
+            <h2>挑戰與解決方案</h2>
+            <li>Q1：Buoy Health 的建議基於標準化的醫療指南，但可能無法始終與不同國家或地區的實踐或法規保持一致?</li>
+            <p>A：在 Buoy 的 AI 模型中實施區域適配層。這些層可以讓系統結合當地的醫療實踐、治療指南和法規，提供更符合地區特定需求的建議。</p>
+            <li>Q2：用戶經常提供模糊或不清楚的症狀描述，這使得 Buoy 難以進行準確的評估。</li>
+            <p>A：系統可以改進自然語言理解（NLU）技術，以識別含糊不清的回答。如果回答不明確，系統可以提示用戶進一步說明，或提出額外的問題，以確保更準確的症狀識別。</p>
+            <li>Q3：僅有網頁版本在添加功能（如基於攝像頭的症狀識別）時可能受限，因為它無法充分利用像移動應用程序那樣的設備功能。此外，無法發送推送通知，可能錯過重要的健康提醒，且用戶必須手動打開瀏覽器，這可能降低參與度。</li>
+            <p>A：開發移動應用程序以實現全面的功能訪問。</p>
+            <ul>
+                <li>基於攝像頭的症狀識別：移動應用程序可以利用設備的攝像頭來進行視覺化的症狀識別，而這在僅有網頁版本的情況下是不可行的。</li>
+                <li>推送通知：移動應用程序可以發送推送通知，提醒用戶重要的健康更新、症狀追蹤提醒或後續問題。</li>
+            </ul>
+            
+        </section>
+
+        <section id="nlp">
+            <h2>Natural Language Processing的運作方式</h2>
+            <h3>NLP = NLU＋DM+NLG</h3>
+            <p>自然語言理解 (NLU) 通過意圖分類和實體識別來理解內容，幫助聊天機器人掌握用戶需求並提供適當的服務。對話管理 (DM) 負責管理對話流程，確保互動的順暢進行。自然語言生成 (NLG) 則根據這些理解生成回應。自然語言技術使健康管理系統的語氣更加貼近人性化。</p>
+            <h3>NLP如何運作</h3>
+            <ul>
+                <li>自然語言理解 (NLU)：包括意圖分類、實體識別、情感分析以及上下文理解，用於分析用戶輸入內容並確定其需求和目的。</li>
+                <li>對話管理 (DM)：在接收到意圖和實體後，DM 決定接下來的操作（例如，選擇適當的回應、管理對話狀態或查詢數據庫）。</li>
+                <li>自然語言生成 (NLG)：NLG 從結構化數據或預定義信息生成類似人類的文本，將數據轉化為可讀、連貫且上下文適配的文字表達。</li>
+            </ul>
+        </section>
+
+        <section id="future">
+            <h2>未來發展</h2>
+            <p>隨著 COVID-19 大流行的爆發，人工智慧健康聊天機器人成為醫療領域的重要工具。儘管許多此類產品仍存在一些限制，但 Buoy 凭借較少的缺陷脱颖而出，成为最有效的工具之一。通過解決之前提到的挑戰，Buoy 可以顯著提升其性能，特別是在未來的大規模疫情爆發期間以及日常醫療管理中。它能夠幫助患者解決小型健康問題，而無需前往醫院，從而減輕醫療系統的負擔。隨著技術的不斷進步，Buoy 有潛力成為全球醫療保健領域的重要組成部分，為更廣泛的人群提供及時且便捷的健康建議。</p>
+        </section>
+
+        <section id="video">
+            <h2>發表影片</h2>
+            <video controls>
+                <source src="ggggg.mp4" type="video/mp4">
+                您的瀏覽器不支持 HTML 視頻標籤。
+            </video>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 計概期末專案小組</p>
+    </footer>
+
+    <script>
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('data-target');
+
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
